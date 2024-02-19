@@ -4,7 +4,7 @@ This github repo is an implementation to completely check your entire thesis, di
 * Sentence and paragraph structure
 * Writing tips
 
-Using GPT4 with the OpenAI API.
+Using GPT4 with the OpenAI API. Expect a large report to cost around $5 to complete.
 
 ## Installation
 Install python dependencies, use python 3.11 or higher

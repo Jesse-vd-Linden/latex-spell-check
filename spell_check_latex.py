@@ -13,7 +13,7 @@ def evident_spelling_mistakes(text):
         "Your goal is to find all the evident mistakes in the supplied text. Point out all the incorrect things that are just sloppy writing" \
         "Look at spelling mistakes, sentences that do not make sense and claims or things that just seem incorrect" \
         "Point out the texts that are incorrect and what is incorrect. Do no give tips in how to improve them." \
-        "Be extremely harsh and nitpick as much as you can"
+        "Be extremely harsh and correct as much as you can, but do not comment on the latex formatting and keep it to the language."
         
     user_prompt = f"Spelling check this text:\n{text}"
     completion = client.chat.completions.create(
@@ -49,7 +49,8 @@ def general_writing_tips(chapter, title, text):
     system_prompt = "You are a writing coach for acadamic writers." \
         "Look at the follow text which is one section of a thesis and give clear instructions on how to improve the writing of this student." \
         "Give tips on the scientific manner of the writing, such as if decisions or claims are substantiated" \
-        "And does the specific section"
+        "And does the specific section in the chapter follow the normal guidelines for scientific writing." \
+        "Give maximum of 3 tips, nothing more, quality over quantity."
         
     user_prompt = f"Spelling check this section in the {chapter} with the section title {title}:\ntext:{text}"
     completion = client.chat.completions.create(
@@ -95,6 +96,8 @@ if __name__ == "__main__":
     markdown_filename = f"spelling_check_{time}.md"
     with open(markdown_filename, 'w', encoding='utf-8') as file:
         file.write('# Latex Spelling Check\n\n')
+        
+    latex_files = [str(f) for f in latex_files]
     
     for latex_file in tqdm(latex_files):
         if str(latex_file).split("\\")[-1] in blocked_files:
