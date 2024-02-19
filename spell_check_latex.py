@@ -133,8 +133,5 @@ if __name__ == "__main__":
                 markdown_file.write(f'### Writing tips\n')
                 markdown_file.write(writing_tips)
                 markdown_file.write("\n\n")
-                
-            break
-        break
-            
+         
         
