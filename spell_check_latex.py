@@ -19,6 +19,7 @@ def evident_spelling_mistakes(text):
     completion = client.chat.completions.create(
         model="gpt-4",
         temperature=0.2,
+        max_tokens=1000,
         messages=[
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt}
@@ -37,6 +38,7 @@ def restructuring_sentences(chapter, title, text):
     completion = client.chat.completions.create(
         model="gpt-4",
         temperature=0.2,
+        max_tokens=1000,
         messages=[
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt}
@@ -56,6 +58,7 @@ def general_writing_tips(chapter, title, text):
     completion = client.chat.completions.create(
         model="gpt-4",
         temperature=0.2,
+        max_tokens=300,
         messages=[
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt}

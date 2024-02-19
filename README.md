@@ -4,7 +4,8 @@ This github repo is an implementation to completely check your entire thesis, di
 * Sentence and paragraph structure
 * Writing tips
 
-Using GPT4 with the OpenAI API. Expect a large report to cost around $5 to complete.
+Using GPT4 with the OpenAI API. Expect a large report (10.000 words) to cost around $3-5 to complete.
+You can always change the model to a lower cost model.
 
 ## Installation
 Install python dependencies, use python 3.11 or higher
