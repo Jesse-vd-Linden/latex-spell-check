@@ -8,6 +8,12 @@ from tqdm import tqdm
 
 client = OpenAI()
 
+# Select your LLM model
+model = "gpt-4"
+# model = "gpt-3.5-turbo"
+# model = "gpt-3.5-turbo-16k" # 16k tokens, In case the text needs longer input and response
+
+
 def evident_spelling_mistakes(text):
     system_prompt = "You are a proof reader of a thesis."\
         "Your goal is to find all the evident mistakes in the supplied text. Point out all the incorrect things that are just sloppy writing" \
@@ -17,7 +23,7 @@ def evident_spelling_mistakes(text):
         
     user_prompt = f"Spelling check this text:\n{text}"
     completion = client.chat.completions.create(
-        model="gpt-4",
+        model=model,
         temperature=0.2,
         max_tokens=1000,
         messages=[
@@ -36,7 +42,7 @@ def restructuring_sentences(chapter, title, text):
         
     user_prompt = f"Spelling check this section in the {chapter} with the section title {title}:\ntext:{text}"
     completion = client.chat.completions.create(
-        model="gpt-4",
+        model=model,
         temperature=0.2,
         max_tokens=1000,
         messages=[
@@ -56,7 +62,7 @@ def general_writing_tips(chapter, title, text):
         
     user_prompt = f"Spelling check this section in the {chapter} with the section title {title}:\ntext:{text}"
     completion = client.chat.completions.create(
-        model="gpt-4",
+        model=model,
         temperature=0.2,
         max_tokens=300,
         messages=[
